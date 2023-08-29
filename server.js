@@ -10,7 +10,7 @@ const express = require('express');
 const app = express();
 
 // portar
-//const PORT = 4000;
+const PORT = 4000;
 
 //analisar o corpo das solicitações com formato JSON
 app.use(express.json());
@@ -110,9 +110,9 @@ app.delete('/produtos/:id', (req, res) => {
   }
 });
 
-console.log(`O Servidor está rodando na porta  `);
-// app.listen(PORT, () => {
-  
-// });
 
-module.exports = app;
+ app.listen(PORT, () => {
+  console.log(`O Servidor está rodando na porta  `);  
+ });
+
+//--module.exports = app;
