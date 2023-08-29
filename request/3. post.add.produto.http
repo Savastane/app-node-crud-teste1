@@ -1,0 +1,10 @@
+
+POST http://localhost:4000/produtos
+Accept: application/json
+Content-Type: : application/json
+
+{  
+    "Descricao" : "Leite Integral Piracajuba" ,
+    "Valor" : 7.00,
+    "Marca" : "Piracajuba"
+ }
