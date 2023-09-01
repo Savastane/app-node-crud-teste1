@@ -1,0 +1,9 @@
+PUT  https://kind-jade-walrus-hat.cyclic.cloud/produtos/1
+Accept: application/json
+Content-Type: : application/json
+
+{         
+    "Descricao" : "Leite Integral Piracajuba" ,
+    "Valor" : 7.00,
+    "Marca" : "Piracajuba"
+ }

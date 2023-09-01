@@ -5,6 +5,7 @@
 
 // usar o módulo express
 const express = require('express');
+const bodyParser = require('body-parser');
 
 //inicializar
 const app = express();
@@ -13,9 +14,8 @@ const app = express();
 const PORT = 4000;
 
 //analisar o corpo das solicitações com formato JSON
-app.use(express.json());
-
-const bodyParser = require('body-parser');
+//app.use(express.json());
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
@@ -71,15 +71,22 @@ app.post('/produtos', (req, res) => {
 // Rota para atualizar um produtos existente
 app.put('/produtos/:id', (req, res) => {
 
+  
   const id = parseInt(req.params.id);
-
+  
   const produto = req.body;
+  console.log("new ", req.body);
 
   const indice = produtos.findIndex(item => item.Id === id);
-
+  
   if (indice !== -1) {
+    
+    console.log("old s",produtos[indice]);
+    console.log("new ", produto);
     produtos[indice] = { ...produtos[indice], ...produto };
+
     res.json(produtos[indice]);
+    console.log("change ", produtos[indice]);
   } else {
     res.status(404).json({ message: 'produtos não encontrar' });
   }
